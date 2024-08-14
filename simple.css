@@ -92,6 +92,7 @@ header {
 header h1,
 header p {
   margin: 0;
+  text-align: center;
 }
 
 /* Add a little padding to ensure spacing is correct between content and nav */
@@ -104,6 +105,7 @@ h1,
 h2,
 h3 {
   line-height: 1.1;
+  text-align: center;
 }
 
 /* Format navigation */
@@ -326,13 +328,34 @@ li {
   cursor: pointer;
 }
 
-li::before {
-  content: var(--customBullet, '☐');
+li.incomplete::before {
+  content: "";
+  display: inline-block;
   position: absolute;
-  left: 0;
-  top: -0.3rem;
+  left: -0rem;
+  top: 0.3rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-image: url("images/emptybox.png");
+  background-size: contain;
   color: #0d47a1;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+
+li.complete::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: -0.1rem;
+  top: 0.2rem;
+  width: 1.43rem;
+  height: 1.43rem;
+  background-image: url("images/checkedbox.png");
+  background-size: contain;
+  color: #0d47a1;
+  font-size: 2rem;
   margin-right: 0.5rem;
 }
 

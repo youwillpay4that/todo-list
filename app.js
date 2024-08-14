@@ -28,6 +28,10 @@ class ToDoList {
             alert(`item is already named ${name}`)
             return
         }
+        if (name==="") {
+            alert(`Please add a name!`)
+            return
+        }
         var obj = {
             itemName:name,
             finished:false,
@@ -122,7 +126,8 @@ class ToDoList {
             newItem.textContent = args[1];
             newItem.id = args[1];
             
-            newItem.style.setProperty("--customBullet", '" ☐"');
+            newItem.classList.add("incomplete");
+
             list.appendChild(newItem);
 
             newItem.addEventListener('click', () => {
@@ -133,12 +138,14 @@ class ToDoList {
                 }
                 // You can also change the bullet or perform other actions here
             })
-
+            
         }else if (args[0]==="finish"){
             const list = document.getElementById('FinishedList');
             const item = document.getElementById(args[1]);
 
-            item.style.setProperty("--customBullet", '"☑ "');
+            item.classList.remove("incomplete");
+            item.classList.add("complete");
+
             list.appendChild(item);
 
         }else if (args[0]==="remove"){
